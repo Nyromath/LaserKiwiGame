@@ -17,7 +17,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Space) && cooldownTimer > attackCooldown)
+        if (Input.GetKey(KeyCode.L) && cooldownTimer > attackCooldown)
         {
             Attack();
         }

@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
+    [SerializeField] private float dashDistance;
     private Rigidbody2D body;
     private bool grounded;
+    private bool hasDashed = true;
+    private bool isDashing = false;
 
     private void Awake()
     {
@@ -15,28 +19,57 @@ public class PlayerMovement : MonoBehaviour
     {
         //MOVEMENT
         float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+        if (!isDashing)
+        {
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        //flipping character sprite based on movement direction
-        if (horizontalInput > 0.01f)
-        {
-            transform.localScale = Vector3.one;
-        } else if (horizontalInput < -0.01f)
-        {
-            transform.localScale = new Vector3(-1, 1, 1);
+
+            //flipping character sprite based on movement direction
+            if (horizontalInput > 0.01f)
+            {
+                transform.localScale = Vector3.one;
+            }
+            else if (horizontalInput < -0.01f)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+
+            //jumping
+            if (Input.GetKey(KeyCode.W) && grounded)
+            {
+                StartCoroutine(Jump());
+            }
         }
 
-        //jumping
-        if (Input.GetKey(KeyCode.W) && grounded)
+        //dashing
+        if (Input.GetKey(KeyCode.Space))
         {
-            Jump();
+            StartCoroutine(Dash(transform.localScale.x));
         }
     }
 
-    private void Jump()
+    IEnumerator Jump()
     {
         body.velocity = new Vector2(body.velocity.x, speed * 3);
         grounded = false;
+        yield return new WaitForSeconds(0.1f);
+        hasDashed = false;
+    }
+
+    IEnumerator Dash(float direction)
+    {
+        if (!hasDashed && !grounded)
+        {
+            isDashing = true;
+            hasDashed = true;
+            body.velocity = new Vector2(body.velocity.x, 0f);
+            body.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
+            float gravity = body.gravityScale;
+            body.gravityScale = 0;
+            yield return new WaitForSeconds(0.3f);
+            isDashing = false;
+            body.gravityScale = gravity;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
