@@ -10,8 +10,7 @@ public class CameraController : MonoBehaviour
     private float lookAhead;
     private void Update()
     {
-        //transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed * Time.deltaTime);
-
+        //positions camera to give player more view in the direction they're moving
         transform.position = new Vector3(player.position.x + lookAhead, transform.position.y, transform.position.z);
         lookAhead = Mathf.Lerp(lookAhead, (player.localScale.x * aheadDistance), Time.deltaTime * speed);
     }

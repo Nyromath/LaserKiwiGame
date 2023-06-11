@@ -17,22 +17,27 @@ public class Laser : MonoBehaviour
 
     private void Update()
     {
-        if (hit) Deactivate();
+        if (hit) Deactivate(); //deactivates when laser collides with something
+
+        //moves laser
         float movementSpeed = speed * Time.deltaTime * direction;
         transform.Translate(movementSpeed, 0, 0);
 
+        //deactivates laser if it goes too long without hitting something; allows for fewer laser objects to be used and helps memory/performance
         lifetime += Time.deltaTime;
         if(lifetime > 1) gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //checks for collision
         hit = true;
         boxCollider.enabled = false;
     }
 
     public void Direction(float _direction)
     {
+        //determines direction based on character alignment; called from PlayerAttack script
         lifetime = 0;
         direction = _direction;
         gameObject.SetActive(true);

@@ -16,6 +16,6 @@ public class Healthbar : MonoBehaviour
 
     private void Update()
     {
-        currentHealthbar.fillAmount = playerHealth.currentHealth / 3;
+        currentHealthbar.fillAmount = playerHealth.currentHealth / 3; //Red health icons image layer unfills as player takes damage, showing black unfilled health icons beneath to represent damage
     }
 }

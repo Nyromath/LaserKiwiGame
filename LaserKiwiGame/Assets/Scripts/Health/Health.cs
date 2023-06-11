@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
-    public float currentHealth { get; private set; }
+    public float currentHealth { get; private set; } //allows other scripts to get the currentHealth value, but can only be set by this script
 
     private void Awake()
     {
@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth); //limits health to between 0 and the set max health value
 
         if(currentHealth > 0)
         {
@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
         }
         else
         {
-            GetComponent<PlayerMovement>().enabled = false;
+            GetComponent<PlayerMovement>().enabled = false; //player movement deactivates and gets Game Over if health is at or below 0
         }
     }
 

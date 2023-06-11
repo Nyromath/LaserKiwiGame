@@ -37,22 +37,21 @@ public class PlayerMovement : MonoBehaviour
             //jumping
             if (Input.GetKey(KeyCode.W) && grounded)
             {
-                StartCoroutine(Jump());
+                Jump();
             }
         }
 
         //dashing
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             StartCoroutine(Dash(transform.localScale.x));
         }
     }
 
-    IEnumerator Jump()
+    private void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, speed * 3);
         grounded = false;
-        yield return new WaitForSeconds(0.1f);
         hasDashed = false;
     }
 
