@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5933586430260182270}
   - component: {fileID: 5933586430260182269}
   - component: {fileID: 5933586430260182271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EvilSquare
   m_TagString: Untagged
   m_Icon: {fileID: 0}

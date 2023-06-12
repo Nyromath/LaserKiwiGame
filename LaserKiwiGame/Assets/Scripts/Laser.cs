@@ -33,6 +33,11 @@ public class Laser : MonoBehaviour
         //checks for collision
         hit = true;
         boxCollider.enabled = false;
+
+        if(collision.tag == "Enemy")
+        {
+            collision.GetComponent<Health>().TakeDamage(1);
+        }
     }
 
     public void Direction(float _direction)
