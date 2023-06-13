@@ -69,8 +69,9 @@ public class Health : MonoBehaviour
 
     private IEnumerator Invulnerability()
     {
-        Physics2D.IgnoreLayerCollision(7, 8, true);
+        LayerCollision(true);
 
+        //i-frame flashes
         for(int i = 0; i < invFlashes; i++)
         {
             sprite.color = new Color(0, 0, 0, 0.5f);
@@ -79,11 +80,39 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(invDuration / invFlashes / 2);
         }
 
-        Physics2D.IgnoreLayerCollision(7, 8, false);
+        LayerCollision(false);
+    }
+
+    private void LayerCollision(bool state)
+    {
+        //if game object is player, disable/enable player-to-enemy collision during i-frames
+        if(GetComponent<PlayerMovement>() != null)
+        {
+            Physics2D.IgnoreLayerCollision(7, 8, state);
+        }
+
+        //if game object is enemy, disable/enable enemy-to-laser collision during i-frames
+        if(GetComponentInParent<EnemyPatrol>() != null)
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, state);
+        }
+    }
+
+    public void Respawn()
+    {
+        gameObject.SetActive(true);
+        TakeDamage(startingHealth * -1);
+        StartCoroutine(Invulnerability());
     }
 
     private void Deactivate()
     {
         gameObject.SetActive(false);
+
+        //if deactivated game object is player, get and execute respawn script
+        if(GetComponent<PlayerMovement>() != null)
+        {
+            GetComponent<PlayerRespawn>().Respawn();
+        }
     }
 }

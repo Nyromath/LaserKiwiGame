@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  invDuration: 2
+  invDuration: 1
   invFlashes: 3
 --- !u!114 &690186886766344927
 MonoBehaviour:
