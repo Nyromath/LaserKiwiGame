@@ -18,6 +18,15 @@ public class Health : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        //entity dies if falling below y:-1
+        if(GetComponent<Transform>().position.y < -1)
+        {
+            TakeDamage(3);
+        }
+    }
+
     public void TakeDamage(float _damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth); //limits health to between 0 and the set max health value

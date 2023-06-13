@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-    private Transform currentCheckpoint;
+    [SerializeField] private Transform currentCheckpoint;
     private Health playerHealth;
 
     private void Awake()
@@ -15,6 +15,7 @@ public class PlayerRespawn : MonoBehaviour
     public void Respawn()
     {
         transform.position = currentCheckpoint.position;
+        transform.localScale = new Vector3(1, 1, 1);
         playerHealth.Respawn();
     }
 
