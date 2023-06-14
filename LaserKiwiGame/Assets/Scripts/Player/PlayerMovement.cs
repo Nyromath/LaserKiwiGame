@@ -9,10 +9,12 @@ public class PlayerMovement : MonoBehaviour
     private bool grounded;
     private bool hasDashed = true;
     private bool isDashing = false;
+    private float gravity;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
+        gravity = body.gravityScale;
     }
 
     private void Update()
@@ -63,12 +65,17 @@ public class PlayerMovement : MonoBehaviour
             hasDashed = true;
             body.velocity = new Vector2(body.velocity.x, 0f);
             body.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
-            float gravity = body.gravityScale;
             body.gravityScale = 0;
             yield return new WaitForSeconds(0.3f);
             isDashing = false;
             body.gravityScale = gravity;
         }
+    }
+
+    public void DashReset()
+    {
+        body.gravityScale = gravity;
+        isDashing = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

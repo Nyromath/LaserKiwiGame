@@ -17,6 +17,7 @@ public class PlayerRespawn : MonoBehaviour
         transform.position = currentCheckpoint.position;
         transform.localScale = new Vector3(1, 1, 1);
         playerHealth.Respawn();
+        GetComponent<PlayerMovement>().DashReset();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
