@@ -109,6 +109,7 @@ public class Health : MonoBehaviour
 
     public void Respawn()
     {
+        //resets the player, restores them to full health, and gives them invulnerability for a brief period after respawning
         gameObject.SetActive(true);
         TakeDamage(startingHealth * -1);
         StartCoroutine(Invulnerability());

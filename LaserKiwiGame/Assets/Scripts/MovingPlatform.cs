@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trap : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
-    //editable stats for trap behaviour
-    [SerializeField] private float damage;
+    //editable stats for platform
     [SerializeField] private float speed;
-    [SerializeField] private float movementDistance;
+    //[SerializeField] private float movementDistance;
 
-    //variables to determine trap movement
+    //variables to determine platform movement
     private bool movingLeft;
     [SerializeField] private float leftEdge;
     [SerializeField] private float rightEdge;
@@ -48,12 +47,13 @@ public class Trap : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //damages player if the player touches the trap
-        if (collision.tag == "Player")
-        {
-            collision.GetComponent<Health>().TakeDamage(1);
-        }
+        collision.transform.SetParent(transform);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        collision.transform.SetParent(null);
     }
 }

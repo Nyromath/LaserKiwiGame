@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void DashReset()
     {
+        //called during respawn. if dash isn't reset, the player could respawn in the air with no gravity or control over the character
         body.gravityScale = gravity;
         isDashing = false;
     }
