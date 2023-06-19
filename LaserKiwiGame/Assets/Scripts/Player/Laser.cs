@@ -25,7 +25,7 @@ public class Laser : MonoBehaviour
 
         //deactivates laser if it goes too long without hitting something; allows for fewer laser objects to be used and helps memory/performance
         lifetime += Time.deltaTime;
-        if(lifetime > 1) gameObject.SetActive(false);
+        if(lifetime > 0.5) gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
