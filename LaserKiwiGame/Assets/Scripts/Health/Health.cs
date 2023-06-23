@@ -40,41 +40,9 @@ public class Health : MonoBehaviour
         }
         else
         {
-            /*
-            //checks if player
-            if (GetComponent<PlayerMovement>() != null)
-            {
-                GetComponent<PlayerMovement>().enabled = false; //player movement deactivates and gets Game Over if health is at or below 0
-            }
-
-            //checks if enemy
-            if (GetComponentInParent<EnemyPatrol>() != null)
-            {
-                GetComponentInParent<EnemyPatrol>().enabled = false; //enemy patrol script deactivates when enemy hits 0 HP
-            }
-
-            if (GetComponent<MeleeEnemy>() != null)
-            {
-                GetComponent<MeleeEnemy>().enabled = false; //enemy script deactivates when enemy hits 0 HP
-            }
-            */
             Deactivate();
         }
     }
-
-    //for testing purposes
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(1);
-        }
-
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            TakeDamage(-1);
-        }
-    }*/
 
     private IEnumerator Invulnerability()
     {

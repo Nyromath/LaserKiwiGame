@@ -14,13 +14,6 @@ public class VerticalTrap : MonoBehaviour
     [SerializeField] private float downEdge;
     [SerializeField] private float upEdge;
 
-    private void Awake()
-    {
-        //setting boundaries for where the trap can move
-        //downEdge = transform.position.y - movementDistance;
-        //upEdge = transform.position.y + movementDistance;
-    }
-
     private void Update()
     {
         //trap movement; checks which direction trap is moving, and if it's reached its movement boundaries

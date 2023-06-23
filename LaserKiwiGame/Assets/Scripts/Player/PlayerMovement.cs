@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale = new Vector3(-1, 1, 1);
             }
 
-            //jumping
+            //jumping; only allows jumping if the player is on the ground
             if (Input.GetKey(KeyCode.W) && grounded)
             {
                 Jump();
@@ -59,13 +59,19 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator Dash(float direction)
     {
+        //only allows the player to dash if they haven't already during this jump, and if they're in the air
         if (!hasDashed && !grounded)
         {
+            //setting variables to affect other movement behaviour while dashing
             isDashing = true;
             hasDashed = true;
+
+            //freezes player's Y movement and applies a set force in the dashing direction
             body.velocity = new Vector2(body.velocity.x, 0f);
             body.AddForce(new Vector2(dashDistance * direction, 0f), ForceMode2D.Impulse);
             body.gravityScale = 0;
+
+            //waits for dash to conclude then returns player movement to its regular state
             yield return new WaitForSeconds(0.3f);
             isDashing = false;
             body.gravityScale = gravity;
@@ -81,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //if the player is on the ground, mark them as "grounded"
         if(collision.gameObject.tag == "Ground")
         {
             grounded = true;

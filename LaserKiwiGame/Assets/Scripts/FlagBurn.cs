@@ -18,6 +18,7 @@ public class FlagBurn : MonoBehaviour
 
     private void Update()
     {
+        //sprite turns red and gradually fades out every frame once burning condition is met
         if (burning)
         {
             sprite.color = new Color(1, 0, 0, alpha);
@@ -27,8 +28,7 @@ public class FlagBurn : MonoBehaviour
 
     public void BurnUp()
     {
-        //sprite.color = Color.red;
-        //sprite.color = new Color(1, 0, 0, Mathf.Lerp(1, 0, Time.deltaTime));
+        //causes end text to appear and burning animation to start
         burning = true;
         endingText.Appear();
     }

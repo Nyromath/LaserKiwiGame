@@ -6,19 +6,11 @@ public class MovingPlatform : MonoBehaviour
 {
     //editable stats for platform
     [SerializeField] private float speed;
-    //[SerializeField] private float movementDistance;
 
     //variables to determine platform movement
     private bool movingLeft;
     [SerializeField] private float leftEdge;
     [SerializeField] private float rightEdge;
-
-    private void Awake()
-    {
-        //setting boundaries for where the trap can move
-        //leftEdge = transform.position.x - movementDistance;
-        //rightEdge = transform.position.x + movementDistance;
-    }
 
     private void Update()
     {
@@ -47,6 +39,7 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    //using parent/child relationship to make the player move with the platform when the player collides with it
     private void OnCollisionEnter2D(Collision2D collision)
     {
         collision.transform.SetParent(transform);

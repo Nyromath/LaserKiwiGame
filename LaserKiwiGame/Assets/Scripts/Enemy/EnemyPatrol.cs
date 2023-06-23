@@ -21,6 +21,7 @@ public class EnemyPatrol : MonoBehaviour
     }
     private void Update()
     {
+        //enemy movement behaviour; moves between its left point and right point
         if (movingLeft)
         {
             if (enemy.position.x >= leftEdge.position.x)
@@ -47,6 +48,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void DirectionChange()
     {
+        //enemy changes direction after staying idle for a time
         idleTimer += Time.deltaTime;
 
         if (idleTimer > idleDuration)
@@ -57,6 +59,7 @@ public class EnemyPatrol : MonoBehaviour
 
     private void MoveInDirection (int _direction)
     {
+        //enemy moves, sets idleTimer to 0 while not idle
         idleTimer = 0;
         enemy.localScale = new Vector3(Mathf.Abs(initScale.x) * _direction, initScale.y, initScale.z);
 
