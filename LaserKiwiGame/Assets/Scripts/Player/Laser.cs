@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float direction;
     private float lifetime;
+    private bool horiz;
 
     private void Awake()
     {
@@ -31,17 +32,31 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //checks for collision
-        hit = true;
-        boxCollider.enabled = false;
-
-        if(collision.tag == "Enemy")
+        if (collision.tag == "Mirror")
         {
-            collision.GetComponent<Health>().TakeDamage(1);
+            if (collision.GetComponent<Mirror>().clockwise == false)
+            {
+                transform.Rotate(0, 0, 90);
+            }
+            else
+            {
+                transform.Rotate(0, 0, -90);
+            }
         }
-
-        if(collision.tag == "EndFlag")
+        else
         {
-            collision.GetComponent<FlagBurn>().BurnUp();
+            hit = true;
+            boxCollider.enabled = false;
+
+            if (collision.tag == "Enemy")
+            {
+                collision.GetComponent<Health>().TakeDamage(1);
+            }
+
+            if (collision.tag == "EndFlag")
+            {
+                collision.GetComponent<FlagBurn>().BurnUp();
+            }
         }
     }
 
@@ -53,6 +68,7 @@ public class Laser : MonoBehaviour
         gameObject.SetActive(true);
         hit = false;
         boxCollider.enabled = true;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     private void Deactivate()
