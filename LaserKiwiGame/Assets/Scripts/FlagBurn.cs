@@ -8,6 +8,7 @@ public class FlagBurn : MonoBehaviour
     private SpriteRenderer sprite;
     private bool burning;
     private float alpha;
+    private float timePassed;
 
     private void Awake()
     {
@@ -21,8 +22,10 @@ public class FlagBurn : MonoBehaviour
         //sprite turns red and gradually fades out every frame once burning condition is met
         if (burning)
         {
+            timePassed += Time.deltaTime;
+            float progress = timePassed / 1;
             sprite.color = new Color(1, 0, 0, alpha);
-            alpha = Mathf.Lerp(alpha, 0, Time.deltaTime * 1);
+            alpha = Mathf.Lerp(1, 0, progress);
         }
     }
 

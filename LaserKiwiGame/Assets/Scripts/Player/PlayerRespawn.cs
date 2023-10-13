@@ -30,7 +30,6 @@ public class PlayerRespawn : MonoBehaviour
             //sets new spawn point and triggers flag raising animation
             currentCheckpoint = collision.transform;
             collision.GetComponent<Collider2D>().enabled = false;
-            //collision.GetComponent<Animator>().SetTrigger("Appear");
             collision.GetComponent<CheckpointFlagScript>().Activate();
 
             //heals player to full health when activating a checkpoint
