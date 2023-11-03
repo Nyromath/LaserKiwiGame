@@ -57,6 +57,11 @@ public class Laser : MonoBehaviour
             {
                 collision.GetComponent<FlagBurn>().BurnUp();
             }
+
+            if (collision.tag == "Detector")
+            {
+                collision.GetComponent<LaserDetector>().Activate();
+            }
         }
     }
 

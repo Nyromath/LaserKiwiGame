@@ -9,6 +9,7 @@ TagManager:
   - Checkpoint
   - EndFlag
   - Mirror
+  - Detector
   layers:
   - Default
   - TransparentFX
