@@ -50,6 +50,18 @@ MonoBehaviour:
   flag: {fileID: 7672780084828058094}
   flagSprites:
   - {fileID: 125506505, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: 1015314991, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -499031159, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: 1306233052, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: 1683082508, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: 1839290059, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -946473164, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -2046826527, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -1339370411, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -693648161, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -1022881849, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: 1517375255, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
+  - {fileID: -413960808, guid: 62d628bc98587134c94b3bee70dccb9a, type: 3}
 --- !u!61 &4702006452996376811
 BoxCollider2D:
   m_ObjectHideFlags: 0

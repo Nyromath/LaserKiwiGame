@@ -9,32 +9,36 @@ public class MovingPlatform : MonoBehaviour
 
     //variables to determine platform movement
     private bool movingLeft;
+    [SerializeField] private bool active;
     [SerializeField] private float leftEdge;
     [SerializeField] private float rightEdge;
 
     private void Update()
     {
         //trap movement; checks which direction trap is moving, and if it's reached its movement boundaries
-        if (movingLeft)
+        if (active)
         {
-            if (transform.position.x > leftEdge)
+            if (movingLeft)
             {
-                transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+                if (transform.position.x > leftEdge)
+                {
+                    transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    movingLeft = false;
+                }
             }
             else
             {
-                movingLeft = false;
-            }
-        }
-        else
-        {
-            if (transform.position.x < rightEdge)
-            {
-                transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                movingLeft = true;
+                if (transform.position.x < rightEdge)
+                {
+                    transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    movingLeft = true;
+                }
             }
         }
     }
@@ -48,5 +52,10 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         collision.transform.SetParent(null);
+    }
+
+    public void setActive(bool state)
+    {
+        active = state;
     }
 }

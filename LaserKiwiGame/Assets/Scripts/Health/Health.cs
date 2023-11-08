@@ -68,8 +68,14 @@ public class Health : MonoBehaviour
             Physics2D.IgnoreLayerCollision(7, 8, state);
         }
 
-        //if game object is enemy, disable/enable enemy-to-laser collision during i-frames
+        //if game object is melee enemy, disable/enable enemy-to-laser collision during i-frames
         if(GetComponentInParent<EnemyPatrol>() != null)
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, state);
+        }
+
+        //if game object is ranged enemy, disable/enable enemy-to-laser collision during i-frames
+        if (GetComponent<RangedEnemy>() != null)
         {
             Physics2D.IgnoreLayerCollision(8, 9, state);
         }

@@ -53,6 +53,11 @@ public class Laser : MonoBehaviour
                 collision.GetComponent<Health>().TakeDamage(1);
             }
 
+            if (collision.tag == "Player")
+            {
+                collision.GetComponent<Health>().TakeDamage(1);
+            }
+
             if (collision.tag == "EndFlag")
             {
                 collision.GetComponent<FlagBurn>().BurnUp();
