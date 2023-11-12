@@ -58,4 +58,9 @@ public class MovingPlatform : MonoBehaviour
     {
         active = state;
     }
+
+    public float GetLeftEdge()
+    {
+        return leftEdge;
+    }
 }
