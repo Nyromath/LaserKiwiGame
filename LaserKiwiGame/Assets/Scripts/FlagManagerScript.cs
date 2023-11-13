@@ -7,7 +7,8 @@ public class FlagManagerScript : MonoBehaviour
     [SerializeField] List<CheckpointFlagScript> checkpoints;
     [SerializeField] private int flagSpriteNum = 0;
     // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
         ChangeFlags(flagSpriteNum);
     }

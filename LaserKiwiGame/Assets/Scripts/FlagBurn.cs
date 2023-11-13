@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FlagBurn : MonoBehaviour
 {
-    [SerializeField] private EndText endingText;
+    //[SerializeField] private EndText endingText;
+    [SerializeField] private GameObject gate;
     private SpriteRenderer sprite;
     private bool burning;
     private float alpha;
@@ -33,6 +34,7 @@ public class FlagBurn : MonoBehaviour
     {
         //causes end text to appear and burning animation to start
         burning = true;
-        endingText.Appear();
+        //endingText.Appear();
+        gate.SetActive(true);
     }
 }

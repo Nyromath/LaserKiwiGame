@@ -49,6 +49,10 @@ public class LaserDetector : MonoBehaviour
             case 4: //Variant 4 for mirror rotating puzzle
                 TargetMirrorRotate();
                 break;
+            case 5: //Variant 5 for setting player spawn and deactivating platform
+                SpawnSet();
+                On();
+                break;
             default:
                 break;
         }
@@ -97,5 +101,11 @@ public class LaserDetector : MonoBehaviour
             mirror.GetComponent<Mirror>().clockwise = !mirror.GetComponent<Mirror>().clockwise; //inverts clockwise tag
             mirror.transform.Rotate(0, 0, 90);
         }
+    }
+
+    private void SpawnSet()
+    {
+        targets[0].SetActive(false); //deactivates platform
+        targets[1].GetComponent<PlayerRespawn>().SetRespawnPoint(targets[2].transform); //sets player spawn point to the position of the respawn target
     }
 }
