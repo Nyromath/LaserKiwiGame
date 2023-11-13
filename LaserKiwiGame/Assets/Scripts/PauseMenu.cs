@@ -61,6 +61,7 @@ public class PauseMenu : MonoBehaviour
 
     public void FlagSelect(int flag)
     {
+        StaticData.flagSprite = flag;
         flagManager.GetComponent<FlagManagerScript>().ChangeFlags(flag);
         FlagOptionsClose();
     }

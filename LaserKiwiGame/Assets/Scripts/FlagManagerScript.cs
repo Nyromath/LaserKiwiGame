@@ -10,6 +10,7 @@ public class FlagManagerScript : MonoBehaviour
 
     private void Start()
     {
+        flagSpriteNum = StaticData.flagSprite;
         ChangeFlags(flagSpriteNum);
     }
 

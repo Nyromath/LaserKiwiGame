@@ -5730,6 +5730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gate: {fileID: 670338180}
+  level: 1
 --- !u!212 &724999626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7813,7 +7814,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1431440747}
-  m_RootOrder: 67
+  m_RootOrder: 56
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11510,6 +11511,7 @@ Transform:
   - {fileID: 86979071}
   - {fileID: 678348941}
   - {fileID: 205743212}
+  - {fileID: 1034316623}
   - {fileID: 42215387}
   - {fileID: 415981767}
   - {fileID: 1467094952}
@@ -11521,7 +11523,6 @@ Transform:
   - {fileID: 1899063021}
   - {fileID: 1534170979}
   - {fileID: 1316114510}
-  - {fileID: 1034316623}
   - {fileID: 1235337469}
   - {fileID: 863717898}
   - {fileID: 1464176207}

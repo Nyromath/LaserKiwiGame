@@ -11314,6 +11314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gate: {fileID: 1966869539}
+  level: 2
 --- !u!212 &1190222889
 SpriteRenderer:
   m_ObjectHideFlags: 0

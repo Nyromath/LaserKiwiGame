@@ -12,6 +12,27 @@ public class HubGate : MonoBehaviour
     private void Awake()
     {
         playerInRange = false;
+
+        //checking hub gates if level is complete
+        switch (levelNumber)
+        {
+            case 1:
+                if (StaticData.level1Complete)
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+                }
+                break;
+            case 2:
+                if (StaticData.level2Complete)
+                {
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     // Update is called once per frame

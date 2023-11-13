@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class FlagBurn : MonoBehaviour
 {
-    //[SerializeField] private EndText endingText;
     [SerializeField] private GameObject gate;
+    [SerializeField] private int level;
     private SpriteRenderer sprite;
     private bool burning;
     private float alpha;
@@ -32,9 +32,21 @@ public class FlagBurn : MonoBehaviour
 
     public void BurnUp()
     {
-        //causes end text to appear and burning animation to start
+        //causes return gate to appear and burning animation to start
         burning = true;
-        //endingText.Appear();
         gate.SetActive(true);
+
+        //marks level as complete
+        switch (level)
+        {
+            case 1:
+                StaticData.level1Complete = true;
+                break;
+            case 2:
+                StaticData.level2Complete = true;
+                break;
+            default:
+                break;
+        }
     }
 }
