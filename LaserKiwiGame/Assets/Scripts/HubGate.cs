@@ -13,14 +13,14 @@ public class HubGate : MonoBehaviour
     {
         playerInRange = false;
 
-        //checking hub gates if level is complete
+        //checking hub gates if level is complete; disables them if their associated level is complete
         switch (levelNumber)
         {
             case 1:
                 if (StaticData.level1Complete)
                 {
-                    GetComponent<BoxCollider2D>().enabled = false;
-                    GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+                    GetComponent<BoxCollider2D>().enabled = false; //disables box collider so playerInRange variable can never be "true"
+                    GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f); //sets colour to grey to give the disabled appearance
                 }
                 break;
             case 2:
@@ -35,29 +35,30 @@ public class HubGate : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && playerInRange)
+        if(Input.GetKeyDown(KeyCode.E) && playerInRange) //reads E input, only if the player is close to the gate
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + levelNumber);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + levelNumber); //loads scene based on inputted value
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //detects if player is in range
         if(collision.tag == "Player")
         {
-            inputPrompt.SetActive(true);
+            inputPrompt.SetActive(true); //"E" key input prompt appears on UI
             playerInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //detects when player leaves range
         if (collision.tag == "Player")
         {
-            inputPrompt.SetActive(false);
+            inputPrompt.SetActive(false); //"E" key input prompt removed from UI
             playerInRange = false;
         }
     }

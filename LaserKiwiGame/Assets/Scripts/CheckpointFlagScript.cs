@@ -27,6 +27,7 @@ public class CheckpointFlagScript : MonoBehaviour
     {
         if (activated)
         {
+            //flag rises from the bottom of the flagpole to the top
             timePassed += Time.deltaTime;
             float progress = timePassed / duration;
             flag.transform.localPosition = Vector3.Lerp(startPosition, endPosition, progress);

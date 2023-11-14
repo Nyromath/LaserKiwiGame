@@ -61,17 +61,18 @@ public class LaserDetector : MonoBehaviour
     private void On()
     {
         activated = true;
-        sr.sprite = detectorSprites[1];
+        sr.sprite = detectorSprites[1]; //sets to Green "On" sprite
     }
 
     private void Off()
     {
         activated = false;
-        sr.sprite = detectorSprites[0];
+        sr.sprite = detectorSprites[0]; //sets to Red "Off" sprite
     }
 
     private void TargetEnabled(bool state)
     {
+        //runs through each target in list and sets them as active/inactive
         foreach (GameObject target in targets)
         {
             target.SetActive(state);
@@ -96,6 +97,7 @@ public class LaserDetector : MonoBehaviour
 
     private void TargetMirrorRotate()
     {
+        //runs through each mirror target and rotates them
         foreach(GameObject mirror in targets)
         {
             mirror.GetComponent<Mirror>().clockwise = !mirror.GetComponent<Mirror>().clockwise; //inverts clockwise tag

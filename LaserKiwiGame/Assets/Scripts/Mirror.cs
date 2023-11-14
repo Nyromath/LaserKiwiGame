@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
-    [SerializeField] public bool clockwise;
+    [SerializeField] public bool clockwise; //whether a laser rotates clockwise/counterclockwise when it hits the laser
 }

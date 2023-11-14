@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //when player leaves ground, mark them as not "grounded"
         if(collision.gameObject.tag == "Ground")
         {
             grounded = false;

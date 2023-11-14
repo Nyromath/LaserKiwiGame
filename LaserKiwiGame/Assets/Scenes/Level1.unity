@@ -6881,7 +6881,6 @@ MonoBehaviour:
   - {fileID: 1269981030}
   - {fileID: 654591137}
   - {fileID: 1146944231}
-  flagSpriteNum: 0
 --- !u!1001 &894578610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7814,7 +7813,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1431440747}
-  m_RootOrder: 56
+  m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -11501,6 +11500,7 @@ Transform:
   - {fileID: 1560136642}
   - {fileID: 1276245121}
   - {fileID: 58430428}
+  - {fileID: 1034316623}
   - {fileID: 1819155437}
   - {fileID: 637732169}
   - {fileID: 2084707546}
@@ -11511,7 +11511,6 @@ Transform:
   - {fileID: 86979071}
   - {fileID: 678348941}
   - {fileID: 205743212}
-  - {fileID: 1034316623}
   - {fileID: 42215387}
   - {fileID: 415981767}
   - {fileID: 1467094952}

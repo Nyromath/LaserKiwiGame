@@ -54,12 +54,12 @@ public class MovingPlatform : MonoBehaviour
         collision.transform.SetParent(null);
     }
 
-    public void setActive(bool state)
+    public void setActive(bool state) //"active" state used for laser detector controlled platform; platform only moves when "active" is true
     {
         active = state;
     }
 
-    public float GetLeftEdge()
+    public float GetLeftEdge() //used for laser detector controlled platforms to return them to their start position
     {
         return leftEdge;
     }

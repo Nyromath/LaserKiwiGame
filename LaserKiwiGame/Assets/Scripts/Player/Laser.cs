@@ -32,8 +32,9 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //checks for collision
-        if (collision.tag == "Mirror")
+        if (collision.tag == "Mirror") //Mirror has separate interaction from other trigger colliders; has to be checked first
         {
+            //rotates laser after colliding with a mirror dependant on whether the mirror is tagged "clockwise" or not
             if (collision.GetComponent<Mirror>().clockwise == false)
             {
                 transform.Rotate(0, 0, 90);
@@ -45,24 +46,29 @@ public class Laser : MonoBehaviour
         }
         else
         {
+            //when colliding with trigger colliders other than a Mirror, Laser destroys itself
             hit = true;
             boxCollider.enabled = false;
 
+            //damages enemy
             if (collision.tag == "Enemy")
             {
                 collision.GetComponent<Health>().TakeDamage(1);
             }
 
+            //damages player
             if (collision.tag == "Player")
             {
                 collision.GetComponent<Health>().TakeDamage(1);
             }
 
+            //triggers End Flag BurnUp script at the end of a level
             if (collision.tag == "EndFlag")
             {
                 collision.GetComponent<FlagBurn>().BurnUp();
             }
 
+            //actives laser detector
             if (collision.tag == "Detector")
             {
                 collision.GetComponent<LaserDetector>().Activate();

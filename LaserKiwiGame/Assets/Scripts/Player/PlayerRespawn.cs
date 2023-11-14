@@ -37,7 +37,7 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
-    public void SetRespawnPoint(Transform spawnPoint)
+    public void SetRespawnPoint(Transform spawnPoint) //sets player respawn position
     {
         currentCheckpoint = spawnPoint;
     }
