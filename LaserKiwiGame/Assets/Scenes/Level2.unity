@@ -703,6 +703,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoyalGuard (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
 --- !u!1 &42708635
@@ -1616,6 +1624,14 @@ PrefabInstance:
     - target: {fileID: 8371855641643647195, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
       propertyPath: m_Name
       value: RoyalGuard (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
@@ -10745,6 +10761,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoyalGuard (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482383475135249515, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ad69ab7179055245a428b40f9f6a868, type: 3}
 --- !u!4 &1144890982 stripped
@@ -17198,7 +17222,6 @@ MonoBehaviour:
   - {fileID: 107403734}
   - {fileID: 1909214140}
   - {fileID: 850319909}
-  flagSpriteNum: 0
 --- !u!1001 &1698334550
 PrefabInstance:
   m_ObjectHideFlags: 0
